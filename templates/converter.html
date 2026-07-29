@@ -38,6 +38,11 @@
             <div class="result-box">
                 <p>{{ result.amount }} {{ result.from }} =</p>
                 <h3>{{ result.converted }} {{ result.to }}</h3>
+                {% if result.insight %}
+                    <div class="insight-box">
+                        <strong>What that's worth:</strong> {{ result.insight }}
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
 

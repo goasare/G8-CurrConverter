@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect, request
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash
-from currency import get_liveData, convert_curr
+from currency import get_liveData, convert_curr, get_purchasing_power
 
 from forms import RegistrationForm
 from models import db, User
@@ -62,6 +62,9 @@ def converter():
                 'to': to_currency,
                 'converted': converted
             }
+            insight = get_purchasing_power(converted, to_currency)
+            result['insight'] = insight
+
     return render_template('converter.html', title='Currency Converter', currencies=CURRENCIES, result=result, error=error)
 
 if __name__ == '__main__':
