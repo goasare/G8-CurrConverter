@@ -1,7 +1,8 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash
+from currency import get_liveData, convert_curr
 
 from forms import RegistrationForm
 from models import db, User
@@ -37,9 +38,31 @@ def register():
     
     return render_template('register.html', title='Register', form=form)
 
-@app.route("/converter")
+CURRENCIES = ['GHS', 'USD', 'EUR', 'JPY', 'GBP', 'NGN', 'DOP', 'CAD', 'CHF', 'ZAR']
+
+@app.route("/converter", methods=['GET', 'POST'])
 def converter():
-    return "<p> Converter page coming soon! </p>"
+    result = None
+    error = None
+
+    if request.method == 'POST':
+        amount = float(request.form['amount'])
+        from_currency = request.form['from_currency']
+        to_currency = request.form['to_currency']
+
+        data = get_liveData()
+        converted = convert_curr(amount, from_currency, to_currency, data)
+
+        if converted is None:
+            error = "Sorry, conversion rate is not available for the selected currencies."
+        else:
+            result = {
+                'amount' : amount,
+                'from': from_currency,
+                'to': to_currency,
+                'converted': converted
+            }
+    return render_template('converter.html', title='Currency Converter', currencies=CURRENCIES, result=result, error=error)
 
 if __name__ == '__main__':
     app.run(debug=True)

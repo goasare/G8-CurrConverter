@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h2>Currency Converter</h2>
+        <p>Convert between currencies using live exchange rates.</p>
+
+        <form method="POST" action="">
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" step="any" name="amount" class="form-control form-control-lg"
+                       placeholder="Enter amount" required>
+            </div>
+
+            <div class="form-group">
+                <label>From</label>
+                <select name="from_currency" class="form-control form-control-lg">
+                    {% for c in currencies %}
+                        <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>To</label>
+                <select name="to_currency" class="form-control form-control-lg">
+                    {% for c in currencies %}
+                        <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-info">Convert</button>
+            </div>
+        </form>
+
+        {% if result %}
+            <div class="result-box">
+                <p>{{ result.amount }} {{ result.from }} =</p>
+                <h3>{{ result.converted }} {{ result.to }}</h3>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endblock content %}
