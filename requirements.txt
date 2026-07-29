@@ -7,4 +7,4 @@ requests
 sqlalchemy
 pandas
 werkzeug
-google-generatieai
+google-genai

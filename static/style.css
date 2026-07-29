@@ -1,0 +1,166 @@
+:root {
+    --bg: #16181d;
+    --surface: #1e2127;
+    --surface-lighter: #262a32;
+    --border: #333842;
+    --text: #e6e8eb;
+    --text-muted: #9aa2ad;
+    --green: #2ea672;
+    --green-bright: #3dbe85;
+    --green-dim: #1c3b2e;
+    --font-display: "Playfair Display", Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+}
+
+.content-section {
+    background-color: var(--surface);
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 2rem 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+h1, h2, h3 {
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h2, legend {
+    font-family: var(--font-display);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+legend {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+label, .form-control-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    background-color: var(--surface-lighter);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.7rem 0.85rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--green);
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+.btn, .btn-outline-info {
+    background-color: var(--green);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn:hover, .btn-outline-info:hover {
+    background-color: var(--green-bright);
+}
+
+.result-box {
+    margin-top: 1.75rem;
+    padding: 1.5rem;
+    background-color: var(--surface-lighter);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result-box p {
+    color: var(--text-muted);
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+}
+
+.result-box h3 {
+    margin: 0;
+    font-size: 2.1rem;
+    color: var(--green-bright);
+    font-weight: 700;
+}
+
+.insight-box {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    line-height: 1.55;
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    background-color: var(--green-dim);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.insight-box strong {
+    color: var(--green-bright);
+}
+
+.alert {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background-color: var(--green-dim);
+    color: var(--green-bright);
+    border: 1px solid var(--green);
+}
+
+.alert-danger {
+    background-color: #3b1e1e;
+    color: #e88;
+    border: 1px solid #a33;
+}
