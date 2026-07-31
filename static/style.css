@@ -58,6 +58,13 @@ legend {
     width: 100%;
 }
 
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
 .form-group {
     margin-bottom: 1.1rem;
 }
@@ -103,7 +110,7 @@ select.form-control {
 }
 
 .btn:hover, .btn-outline-info:hover {
-    background-color: var(--green-bright);
+    background-color: var(--green);
 }
 
 .result-box {
